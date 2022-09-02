@@ -1,8 +1,8 @@
 // Testing js connection
 console.log("Connected....");
 //selecting html elements
-let searchBar = document.querySelector('input');
-let searchButton = document.querySelector('button');
+const searchBar = document.getElementById('input');
+const searchButton = document.getElementById('searchButton');
 //Log elements we have selected to confirm they are working
 console.log(searchBar);
 console.log(searchButton);

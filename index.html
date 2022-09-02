@@ -9,13 +9,18 @@
     <link rel="stylesheet" href="css/nugget.css">
     <!-- Javscript file linking -->
     <script src="js/nugget.js"></script>
+    <!-- website title -->
     <title>Bible Verse Nuggets</title>
 </head>
 
 <body>
+    <!-- using a div to create & style contents -->
     <div id="Verse-body">
+        <!-- h1 tag has the largest font size -->
         <h1>Welcome to Bible Verse Nuggets</h1>
+        <!-- paragraph tag -->
         <P>Search specific Chapter and verse</P>
+        <!-- using an ordered list to list some functions -->
         <ul class='guide'>
             <li>Keep Track of recent verses</li>
             <li>Share the verses</li>
@@ -23,9 +28,14 @@
             <li>.......................................................................................</li>
         </ul>
 
+        <!-- A separate div whch captures user activities and returns result -->
         <div class="bible-api">
-            <input type="text" placeholder="john 3:16" class="input">
-            <button type="button">search</button>
+            <input type="text" placeholder="john 3:16" id="input">
+            <button type="button" id='searchButton'>search</button>
+        </div>
+
+        <div id="display">
+
         </div>
 
     </div>
