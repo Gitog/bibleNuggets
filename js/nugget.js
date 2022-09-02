@@ -3,34 +3,46 @@ console.log("Connected....");
 //selecting html elements
 const searchBar = document.getElementById('input');
 const searchButton = document.getElementById('searchButton');
+const userInput = document.getElementById('user-input');
 //Log elements we have selected to confirm they are working
 // console.log(document);
-console.log(searchBar);
-console.log(searchButton);
-
+// console.log(searchBar);
+// console.log(searchButton);
+ 
 function getVerse() {
-    fetch('https://bible-api.com/jn 3:16')
-        .then(verses => verses.json())
-        .then(reference => console.log(reference))
+    fetch(`https://bible-api.com/${searchBar.value}`)
+        .then(references => references.json())
+        .then(verses =>renderverse(verses.text))
 }
 
-//call getverse to test if its fetching correctly
-getVerse()
+//call getverse to test if its fetching correctlyl 
+ //getVerse()
 
 //A function to display search result from fetch 
-function renderverse() {
-    let eachVerse = document.createElement('li')
-    eachVerse.className = 'verse';
+function renderverse(text) {
+  
+    let eachVerse = document.createElement('ul')
+    //set class name
+    eachVerse.className = 'verseText';
+
+    //Populate hml using innerHtml
     eachVerse.innerHTML = `
-    <li>${reference}</li>
-    <p>${verses.text}</p>
+    <li>${text}</li>
     `
     console.log(eachVerse);
-    document.querySelector('display-result').appendChild(eachVerse);
+    document.getElementById('display-result').appendChild(eachVerse);
 
 }
 
-searchButton.addEventListener('click', () => {
+//Search Button event listener
+searchButton.addEventListener('click', (e) => {
+    e.preventDefault();
     //To test event listen is working
-    // console.log("Clicked")
+    //console.log(clicked)
+
+    //Reading and displaying user input verse
+    userInput.innerHTML = searchBar.value.toUpperCase();
+   //Initialize get verse function
+    getVerse();
+
 })
