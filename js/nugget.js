@@ -1,10 +1,10 @@
 // Testing js connection
 console.log("Connected....");
 //selecting html elements
-const searchBar = document.getElementById('#input');
+const searchBar = document.getElementById('input');
 const searchButton = document.getElementById('searchButton');
 //Log elements we have selected to confirm they are working
-console.log(document);
+// console.log(document);
 console.log(searchBar);
 console.log(searchButton);
 
@@ -20,12 +20,17 @@ getVerse()
 //A function to display search result from fetch 
 function renderverse() {
     let eachVerse = document.createElement('li')
-    singleEmail.className = 'verse';
-    singleEmail.innerHTML = `
+    eachVerse.className = 'verse';
+    eachVerse.innerHTML = `
     <li>${reference}</li>
     <p>${verses.text}</p>
     `
-    console.log(singleEmail);
-    document.querySelector('verses').appendChild(eachVerse);
+    console.log(eachVerse);
+    document.querySelector('display-result').appendChild(eachVerse);
 
 }
+
+searchButton.addEventListener('click', () => {
+    //To test event listen is working
+    // console.log("Clicked")
+})
