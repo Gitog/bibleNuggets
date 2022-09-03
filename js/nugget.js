@@ -26,12 +26,12 @@ searchButton.addEventListener('click', (e) => {
 function getVerse() {
     fetch(`https://bible-api.com/${searchBar.value}`)
         .then(references => references.json())
-        .then(verses =>renderverse(verses.text));
+        .then(verses =>renderVerse(verses.text));
 };
 
 
 //A function to display search result from fetch 
-function renderverse(text) {
+function renderVerse(text) {
     //set class name
     eachVerse.className = 'verseText';
     //Populate hml using innerHtml
@@ -41,9 +41,7 @@ function renderverse(text) {
     `
     //console.log(eachVerse);
     displayResult.appendChild(eachVerse);
-   // previous.appendChild(eachVerse);
-
-};
+  };
 
 //utilizing browser local storage
  function setLocalStorage() {
@@ -58,7 +56,7 @@ function renderverse(text) {
  if(!data) return;
  //console.log(data)
  data.forEach(scripture => {
-    renderverse(scripture)
+    renderVerse(scripture)
  });
  
 };
@@ -78,6 +76,6 @@ deleteVerse.addEventListener('click',()=> {
 
 const clearVerse =document.querySelector('.clearButton');
 clearVerse.addEventListener('click',()=> {
-    // to-do
+    // To-do
     // Implement clearing all the verses in 'previus verses' 
     alert("Verses Cleared")})
