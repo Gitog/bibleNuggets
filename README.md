@@ -14,3 +14,5 @@ Finally the system enables user to share a verse  to someone.
 
 This system utilizes JavaScript Promises to achieve user requirements
 Event listeners, css improves look and feel and also system interaction.
+
+NB/ Still under development, improving the system
