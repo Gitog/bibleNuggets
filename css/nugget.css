@@ -16,12 +16,26 @@ body{
     margin: 20px auto;
     text-align: center;
 }
+
+#cover{
+    display: inline-flex;
+    margin-left: 10px;
+    margin-top:10px;
+}
+
 /* Styling display results div */
 #display-result{
 background-color:white;
 text-align: left;
+width: 32%;
+min-width:32%;
 }
 
+#previous-result{
+    background-color: rgb(221, 219, 219);
+    min-width: 66%;
+    margin-left: 3px;
+}
 
 h1{
    color: coral;

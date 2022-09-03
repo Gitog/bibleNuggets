@@ -24,7 +24,6 @@ function renderverse(text) {
     let eachVerse = document.createElement('ul')
     //set class name
     eachVerse.className = 'verseText';
-
     //Populate hml using innerHtml
     eachVerse.innerHTML = `
     <li>${text}</li>
@@ -32,6 +31,16 @@ function renderverse(text) {
     console.log(eachVerse);
     document.getElementById('display-result').appendChild(eachVerse);
 
+}
+
+//utilizing browser local storage
+function setLocalStorage(){
+    localStorage.setItem("myVerses",searchBar.value,"Only be strong and very courageous. Be careful to observe to do according to all the law, ")
+}
+
+function getLocalStorage(){
+ const data = JSON.parse(localStorage.getItem("myVerses"));
+ if(!data) return;
 }
 
 //Search Button event listener
