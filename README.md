@@ -16,3 +16,5 @@ This system utilizes JavaScript Promises to achieve user requirements
 Event listeners, css improves look and feel and also system interaction.
 
 NB/ Still under development, improving the system
+
+No third party installation requirements. Execute index.html to interact  with the system

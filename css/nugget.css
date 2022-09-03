@@ -26,15 +26,20 @@ body{
 /* Styling display results div */
 #display-result{
 background-color:white;
-text-align: left;
-width: 32%;
-min-width:32%;
+align-items: center;
+padding: 1px auto;
+min-width: 32%;
 }
 
 #previous-result{
     background-color: rgb(221, 219, 219);
     min-width: 66%;
     margin-left: 3px;
+    margin-right: 5px;
+}
+
+#shareDiv{
+    margin-top: 5px;
 }
 
 h1{
@@ -51,4 +56,9 @@ p{
 
 #user-input{
     font-size: 16px;
+    font-family: Lucida Console;
+}
+
+.shareButton{
+   margin-left: 0px;
 }
