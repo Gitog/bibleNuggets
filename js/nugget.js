@@ -10,10 +10,18 @@ let eachVerse = document.createElement('div')
 // console.log(searchBar);
 // console.log(searchButton);
 
-let him= {
-    hname:"james",
-    age: 13
-}
+
+//Search Button event listener
+searchButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    //To test event listen is working
+    //console.log(clicked)
+   //Initialize getVerse function
+    getVerse();
+    setLocalStorage();
+    //getLocalStorage();
+
+});
  
 function getVerse() {
     fetch(`https://bible-api.com/${searchBar.value}`)
@@ -28,10 +36,10 @@ function renderverse(text) {
     eachVerse.className = 'verseText';
     //Populate hml using innerHtml
     eachVerse.innerHTML = `
-    ${searchBar.value}
+    ${searchBar.value}:
     <li>${text}</li>
     `
-    console.log(eachVerse);
+    //console.log(eachVerse);
     displayResult.appendChild(eachVerse);
    // previous.appendChild(eachVerse);
 
@@ -39,46 +47,37 @@ function renderverse(text) {
 
 //utilizing browser local storage
  function setLocalStorage() {
-    localStorage.setItem("myVerses")
+    let queryResult = getVerse()
+    console.log(queryResult)
+    localStorage.setItem("myVerses",JSON.stringify(queryResult));
 };
 
  function getLocalStorage() {
  const data = JSON.parse(localStorage.getItem("myVerses"));
+ console.log(data)
  if(!data) return;
  //console.log(data)
- previous.innerHTML=renderverse(data);
+ data.forEach(scripture => {
+    renderverse(scripture)
+ });
  
 };
 
-//Search Button event listener
-searchButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    //To test event listen is working
-    //console.log(clicked)
 
-    //Reading and displaying user input verse
-    //userInput.innerHTML = searchBar.value.toUpperCase();
-   //Initialize get verse function
-    getVerse();
-    // setLocalStorage()
-    // getLocalStorage();
-
-});
-
-const shareB =document.querySelector('.shareButton');
-shareB.addEventListener('click',()=> {
+const shareVerse =document.querySelector('.shareButton');
+shareVerse.addEventListener('click',()=> {
     // to-do
-    // Implement Sharing 
+    // Implement Sharing a verse 
     alert("Verse Shared")})
 
-const deleteB =document.querySelector('.deleteButton');
-deleteB.addEventListener('click',()=> {
+const deleteVerse =document.querySelector('.deleteButton');
+deleteVerse.addEventListener('click',()=> {
     // to-do
-    // Implement deleting from Previous verses 
+    // Implement deleting from 'Previous verses'
     alert("Verse Deleted")})
 
-const clearB =document.querySelector('.clearButton');
-clearB.addEventListener('click',()=> {
+const clearVerse =document.querySelector('.clearButton');
+clearVerse.addEventListener('click',()=> {
     // to-do
     // Implement clearing all the verses in 'previus verses' 
     alert("Verses Cleared")})
