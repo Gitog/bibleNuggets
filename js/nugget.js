@@ -20,7 +20,7 @@ searchButton.addEventListener('click', (e) => {
     getVerse();
     // setLocalStorage();
     getLocalStorage();
-    //renderVerse();
+    renderVerse();
 
 });
  
@@ -33,35 +33,30 @@ function getVerse() {
 
 
 //A function to display search result from fetch 
-function renderVerse(verses) {
-    
+function renderVerse() {
+   let h =  getLocalStorage();
+   //console.log(h)
     //set class name
     eachVerse.className = 'verseText';
     //Populate hml using innerHtml
     eachVerse.innerHTML = `
-    ${verses[reference]}:
-    <li>${verses[text]}</li>
+    ${h.reference}:
+    <li>${h.text}</li>
     `
     //console.log(eachVerse);
     displayResult.appendChild(eachVerse);
+    //previous.appendChild(eachVerse);
   };
 
-//utilizing browser local storage
-//  function setLocalStorage() {
-//     console.log(getVerse())
-//     localStorage.setItem("myVerses",JSON.stringify(queryResult));
-// };
 
  function getLocalStorage() {
  const data = JSON.parse(localStorage.getItem("myVerses"));
- console.log(data)
+ //console.log(data)
  if(!data) return;
  //console.log(data)
  previouResult= data;
- console.log(previouResult)
-//  previouResult.array.forEach(verses => {
-//     renderVerse(verses);
-//  });
+ return previouResult;
+ //console.log(previouResult)
  
 };
 
@@ -70,7 +65,7 @@ const shareVerse =document.querySelector('.shareButton');
 shareVerse.addEventListener('click',()=> {
     // to-do
     // Implement Sharing a verse 
-    alert("Verse Shared")})
+    alert("Verse Shared")});
 
 const deleteVerse =document.querySelector('.deleteButton');
 deleteVerse.addEventListener('click',()=> {
