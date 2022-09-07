@@ -3,9 +3,11 @@ console.log("Connected....");
 //selecting html elements
 const searchBar = document.getElementById('input');
 const searchButton = document.getElementById('searchButton');
+const coverDiv =document.getElementById('cover');
 const displayResult =document.getElementById('display-result');
-const previous =document.getElementById('previous-result');
-let eachVerse = document.createElement('div')
+const previousResults =document.getElementById('previous-result');
+
+
 //Log elements we have selected to confirm they are working
 // console.log(searchBar);
 // console.log(searchButton);
@@ -14,50 +16,63 @@ let previouResult = [];
 //Search Button event listener
 searchButton.addEventListener('click', (e) => {
     e.preventDefault();
-    //To test event listen is working
     //console.log(clicked)
-   //Initialize getVerse function
+   //Initialize getVerse, render current verse and previous verse function
     getVerse();
-    // setLocalStorage();
-    getLocalStorage();
-    renderVerse();
+    //getLocalStorage();
+   renderCurrentVerse();
+   renderPreviousVerses();
 
 });
  
 function getVerse() {
     fetch(`https://bible-api.com/${searchBar.value}`)
         .then(bibleObj => bibleObj.json())
-        .then(verses => localStorage.setItem("myVerses",JSON.stringify(verses)))
-        // .then(verses =>renderVerse(verses.text));
+        .then(versesArr => localStorage.setItem("myVerses",JSON.stringify(versesArr)))
 };
 
 
 //A function to display search result from fetch 
-function renderVerse() {
-   let h =  getLocalStorage();
-   //console.log(h)
+function renderCurrentVerse() {
+  let currentVerse =  getLocalStorage();
+   //console.log(currentVerse)
+   let eachVerse = document.createElement('div')
+   
     //set class name
     eachVerse.className = 'verseText';
     //Populate hml using innerHtml
     eachVerse.innerHTML = `
-    ${h.reference}:
-    <li>${h.text}</li>
+    ${currentVerse.reference}:
+    <li>${currentVerse.text}</li>
     `
     //console.log(eachVerse);
     displayResult.appendChild(eachVerse);
-    //previous.appendChild(eachVerse);
+   
   };
 
+  function renderPreviousVerses(){
+    previousVerses =getLocalStorage();
+   // var verseValues = Object.keys(localStorage)
+   let prevVerse = document.createElement('div');
+   prevVerse.className ='prev'
+
+   
+   prevVerse.innerHTML = `
+    ${previousVerses.reference}:
+    <li>${previousVerses.text}</li>
+    `
+//    h.forEach(v =>{
+    previousResults.appendChild(prevVerse);
+//     console.log(v)
+//    })
+  }
 
  function getLocalStorage() {
  const data = JSON.parse(localStorage.getItem("myVerses"));
  //console.log(data)
- if(!data) return;
- //console.log(data)
- previouResult= data;
- return previouResult;
- //console.log(previouResult)
- 
+ //if(!data) return;
+ console.log(data)
+ return  data;
 };
 
 
@@ -69,6 +84,7 @@ shareVerse.addEventListener('click',()=> {
 
 const deleteVerse =document.querySelector('.deleteButton');
 deleteVerse.addEventListener('click',()=> {
+    getLocalStorage()
     // to-do
     // Implement deleting from 'Previous verses'
     localStorage.removeItem("myVerses")
@@ -76,5 +92,7 @@ deleteVerse.addEventListener('click',()=> {
 
 const clearVerse =document.querySelector('.clearButton');
 clearVerse.addEventListener('click',()=> {
+    getLocalStorage()
     localStorage.clear()
+    previouResult.innerHTML=' ';
     alert("Verses Cleared!")})
