@@ -1,5 +1,5 @@
 /* styling body */
-body{
+body {
     background-color: rgb(41, 110, 87);
     font-size: 1rem;
     line-height: 1.5;
@@ -9,80 +9,96 @@ body{
     margin: 0;
     min-height: 50%;
 }
+
 /* styling the genral div */
-#Verse-body{
+#Verse-body {
     background-color: rgb(142, 208, 195);
     box-shadow: 5px 10px 18px #1e2325;
-    width: 65%;
+    display: flex;
+    flex-direction: column;
+    width: 85%;
     margin: 20px auto;
-    text-align: center;
+    align-items: center;
 }
 
-#cover{
-    display: inline-flex;
-    margin-left: 10px;
-    margin-top:10px;
+h1 {
+    color: coral;
+    font-family: "Gill Sans Extrabold", sans-serif;
+    text-shadow: 2px 2px #ff0000;
+
 }
 
-/* Styling display results div */
-#display-result{
-background-color:white;
-box-shadow: 5px 10px 18px #5c6970;
-align-items: center;
-padding: 1px auto;
-min-width: 32%;
+.header {
+    display: flex;
+    flex-direction: row;
 }
 
-#previous-result{
-    background-color: rgb(221, 219, 219);
-    box-shadow: 5px 10px 18px #313232;
-    min-width: 68%;
-    margin-left: 3px;
-    margin-right: 5px;
-}
-
-#shareDiv{
-    margin-top: 5px;
-}
-
-.header{
-    display: inline-flex;
-    margin-right: 40px;
-}
-
-
-.logo{
+.logo {
     width: 60px;
     height: 60px;
     margin-right: 50px;
-    
-    }
-
-h1{
-   color: coral;
-   font-family: "Gill Sans Extrabold", sans-serif;
-   text-shadow: 2px 2px #ff0000;
 
 }
 
-h3{
-    color: coral;
-    font-family: cursive;
+.guide {
+    margin-left: 10px;
 }
-p{
-    color: rgb(90, 90, 29);
-    font-size: 20px;
-}
-.guide{ 
+
+.guide-list {
     list-style: none;
     font-style: italic;
 }
 
-#user-input{
-    font-size: 16px;
-    font-family: Lucida Console;
+p {
+    color: rgb(90, 90, 29);
+    font-size: 20px;
+    font-weight: bold;
 }
 
-.shareButton{
-   margin-left: 0px;
+.search-div {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+
+#cover {
+    display:flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+/* Styling display results div */
+.current-verse {
+    background-color: white;
+    box-shadow: 5px 10px 18px #5c6970;
+    min-height: 190px;
+    min-width: 300px;
+    margin-right: 7px;
+}
+
+.previous-verses {
+    background-color: rgb(221, 219, 219);
+    box-shadow: 5px 10px 18px #313232;
+    min-height: 190px;
+    min-width: 300px;
+}
+
+h3 {
+    color: coral;
+    font-family: cursive;
+    text-align: center;
+}
+
+.optionsDiv{
+    padding: 10px;
+}
+
+button{
+    width: 60px;
+}
+button:hover{
+    background-color: #000;
+    color: #fff;
+
 }

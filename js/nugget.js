@@ -1,11 +1,12 @@
 // Testing js connection
 console.log("Connected....");
+//DOM manipulation
 //selecting html elements
 const searchBar = document.getElementById('input');
 const searchButton = document.getElementById('searchButton');
 const coverDiv =document.getElementById('cover');
-const displayResult =document.getElementById('display-result');
-const previousResults =document.getElementById('previous-result');
+const displayResult =document.querySelector('.current-verse');
+const previousResults =document.querySelector('.previous-verses');
 
 
 //Log elements we have selected to confirm they are working
@@ -25,8 +26,8 @@ searchButton.addEventListener('click', (e) => {
 
 });
  
-function getVerse() {
-    fetch(`https://bible-api.com/${searchBar.value}`)
+async function getVerse() {
+    await fetch(`https://bible-api.com/${searchBar.value}`)
         .then(bibleObj => bibleObj.json())
         .then(versesArr => localStorage.setItem("myVerses",JSON.stringify(versesArr)))
 };
@@ -46,7 +47,7 @@ function renderCurrentVerse() {
     <li>${currentVerse.text}</li>
     `
     //console.log(eachVerse);
-    displayResult.appendChild(eachVerse);
+    displayResult.append(eachVerse);
    
   };
 

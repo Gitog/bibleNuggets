@@ -19,48 +19,51 @@
     <!-- using a div to create & style contents -->
     <div id="Verse-body">
         <!-- h1 tag has the largest font size -->
-        <h1>Welcome to Bible Verse Nuggets &#128525;</h1>
+        <h1>Welcome to Bible Verse Nuggets 📖🕊️</h1>
+        <!--header for logo-->
         <div class="header">
-          <!-- paragraph tag -->
-          <img src="icon/logo.png" class="logo">
-           <P>Search Specific Chapter and Verse</P>
+            <!-- paragraph tag -->
+            <img src="icon/logo.png" class="logo">
+            <P>Search Specific Chapter and Verse</P>
         </div>
-       
-        <!-- using an ordered list to list some functions -->
-        <ul class='guide'>
-            <li>Search a verse</li>
-            <li>Show previous verse(s)</li>
-            <li>Delete stored verse(s)</li>
-            <li>.......................................................................................</li>
-        </ul>
 
+        <!--div for snippet guide-->
+        <div class="guide">
+            <!-- using an ordered list to list guide points-->
+            <ul class='guide-list'>
+                <li>Search a verse</li>
+                <li>Show previous verse(s)</li>
+                <li>Delete stored verse(s)</li>
+            </ul>
+        </div>
+        <h2>.......................................................................................</h2>
         <!-- A separate div which captures user request -->
-        <div class="bible-api">
+        <div class="search-div">
             <input type="text" placeholder="John 3:16" id="input">
             <button type="button" id='searchButton'>search</button>
         </div>
 
         <div id="cover">
-        <!-- a div to display search result -->
-        <div id="display-result">
-            <h3>Current Verse</h3>
+            <!-- a div to display search result -->
+            <div class="current-verse">
+                <h3>Current Verse</h3>
+
+            </div>
+            <!-- a div to display Previous search result -->
+            <div class="previous-verses">
+                <h3>Previous Verses</h3>
+            </div>
 
         </div>
- <!-- a div to display Previous search result -->
-        <div id ="previous-result">
-            <h3>Previous Verses</h3>
-        </div>
-        
-        </div>
         <!-- USer buttons to share , delete & Clear -->
-        <div id="shareDiv">
+        <div class="optionsDiv">
             <button type="button" class='shareButton'>Share</button>
             <button type="button" class='deleteButton'>Delete</button>
             <button type="button" class='clearButton'>Clear</button>
         </div>
-        
+
     </div>
-  
+
 </body>
 
 </html>
